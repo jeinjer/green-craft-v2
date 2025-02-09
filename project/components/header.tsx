@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Menu, Search, Leaf, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -12,11 +13,18 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { 
+  Sheet, 
+  SheetContent, 
+  SheetTrigger,
+  SheetTitle 
+} from "@/components/ui/sheet";
 
 export default function Header() {
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Temporal, hasta implementar auth
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,13 +34,21 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleAuthClick = () => {
+    if (!isAuthenticated) {
+      router.push('/auth');
+    } else {
+      router.push('/profile');
+    }
+  };
+
   const categories = [
-    { name: 'Decoración', icon: '🎨' },
-    { name: 'Muebles', icon: '🪑' },
-    { name: 'Arte', icon: '🖼️' },
-    { name: 'Jardín', icon: '🌿' },
-    { name: 'Juguetes', icon: '🧸' },
-    { name: 'Accesorios', icon: '👜' }
+    { name: 'Decoración' },
+    { name: 'Muebles' },
+    { name: 'Arte' },
+    { name: 'Jardín' },
+    { name: 'Juguetes' },
+    { name: 'Accesorios' }
   ];
 
   return (
@@ -56,9 +72,9 @@ export default function Header() {
               <Input
                 type="search"
                 placeholder="Buscar creaciones..."
-                className="w-full transition-all duration-300 bg-green-700/50 border-green-600 text-white placeholder:text-green-300 focus:bg-green-700/70"
+                className="w-full transition-all duration-300 bg-white border-green-600 text-gray-900 placeholder:text-gray-500 focus:border-green-700"
               />
-              <Search className="absolute right-3 top-2.5 h-5 w-5 text-green-300" />
+              <Search className="absolute right-3 top-2.5 h-5 w-5 text-gray-500" />
             </div>
           </div>
 
@@ -69,17 +85,23 @@ export default function Header() {
                   Categorías
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48 grid grid-cols-1 gap-1">
+              <DropdownMenuContent align="end" className="w-48">
                 {categories.map((category) => (
-                  <DropdownMenuItem key={category.name} className="flex items-center gap-2">
-                    <span>{category.icon}</span>
-                    <span>{category.name}</span>
+                  <DropdownMenuItem 
+                    key={category.name}
+                    className="hover:bg-green-50 focus:bg-green-50 cursor-pointer"
+                  >
+                    {category.name}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button variant="ghost" className="text-white hover:bg-green-700/50">
+            <Button 
+              variant="ghost" 
+              className="text-white hover:bg-green-700/50"
+              onClick={handleAuthClick}
+            >
               <User className="h-5 w-5" />
             </Button>
           </div>
@@ -106,20 +128,23 @@ export default function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <SheetTitle className="text-lg font-semibold mb-4">Menú de Navegación</SheetTitle>
                 <nav className="flex flex-col gap-4">
-                  <h2 className="text-lg font-semibold mb-4">Menú</h2>
                   {categories.map((category) => (
                     <Button
                       key={category.name}
                       variant="ghost"
-                      className="justify-start"
+                      className="justify-start hover:bg-green-50"
                     >
-                      <span className="mr-2">{category.icon}</span>
                       {category.name}
                     </Button>
                   ))}
                   <hr className="my-4" />
-                  <Button variant="outline" className="justify-start">
+                  <Button 
+                    variant="outline" 
+                    className="justify-start"
+                    onClick={handleAuthClick}
+                  >
                     <User className="mr-2 h-5 w-5" />
                     Mi Cuenta
                   </Button>
@@ -140,7 +165,7 @@ export default function Header() {
             <Input
               type="search"
               placeholder="Buscar creaciones..."
-              className="w-full bg-green-700/50 border-green-600 text-white placeholder:text-green-300"
+              className="w-full bg-white border-green-600 text-gray-900 placeholder:text-gray-500"
             />
           </div>
         </div>

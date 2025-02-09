@@ -91,7 +91,7 @@ export default function FeaturedCarousel() {
   }, [emblaApi, autoplay]);
 
   return (
-    <section className="py-16 bg-green-50">
+    <section className="py-16 bg-green-50 mt-16 md:mt-0">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8 text-green-800">
           Creaciones Destacadas

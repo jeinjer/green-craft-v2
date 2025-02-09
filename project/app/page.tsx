@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Search, Sparkles, Leaf, Recycle, TreePine } from 'lucide-react';
 import FeaturedCarousel from '@/components/featured-carousel';
+import Link from 'next/link';
 
 export default function Home() {
   const [text, setText] = useState('');
@@ -84,7 +85,7 @@ export default function Home() {
                 size="lg"
                 className="bg-green-600 hover:bg-green-700 text-white hover:scale-105 transition-transform"
               >
-                <Search className="mr-2 h-5 w-5" /> Buscar Creaciones
+                <Link href="/search" className="flex items-center"><Search className="mr-2 h-5 w-5" /> Buscar Creaciones</Link>
               </Button>
               <Button
                 size="lg"
