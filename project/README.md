@@ -22,3 +22,26 @@ Para versión 1.2:
 - Sugerencias personalizadas Page
 - Cambiar menú del header
 - Eliminar header de diversas páginas
+
+________________________________________
+
+V1.2:
+
+Se agregó: 
+- Sugerencias personalizadas Page
+- FAQ Page
+- Contacto Page
+
+Se modificó: 
+- Menú del header
+
+Se eliminó: 
+- Blog Page
+- Categorías del header
+
+Para versión 1.3:
+- Agregar About Page
+- Agregar prisma y next-auth
+- Agregar CRUD de creaciones
+
+________________________________________

@@ -42,14 +42,6 @@ export default function Header() {
     }
   };
 
-  const categories = [
-    { name: 'Decoración' },
-    { name: 'Muebles' },
-    { name: 'Arte' },
-    { name: 'Jardín' },
-    { name: 'Juguetes' },
-    { name: 'Accesorios' }
-  ];
 
   return (
     <header
@@ -79,24 +71,6 @@ export default function Header() {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="secondary" className="bg-green-700/50 text-white hover:bg-green-700/70">
-                  Categorías
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
-                {categories.map((category) => (
-                  <DropdownMenuItem 
-                    key={category.name}
-                    className="hover:bg-green-50 focus:bg-green-50 cursor-pointer"
-                  >
-                    {category.name}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-
             <Button 
               variant="ghost" 
               className="text-white hover:bg-green-700/50"
@@ -130,15 +104,6 @@ export default function Header() {
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <SheetTitle className="text-lg font-semibold mb-4">Menú de Navegación</SheetTitle>
                 <nav className="flex flex-col gap-4">
-                  {categories.map((category) => (
-                    <Button
-                      key={category.name}
-                      variant="ghost"
-                      className="justify-start hover:bg-green-50"
-                    >
-                      {category.name}
-                    </Button>
-                  ))}
                   <hr className="my-4" />
                   <Button 
                     variant="outline" 

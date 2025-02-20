@@ -23,17 +23,12 @@ export default function Footer() {
             <h3 className="font-semibold text-lg mb-4">Enlaces Rápidos</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-green-100 hover:text-white transition-colors">
+                <Link href="/acerca-de" className="text-green-100 hover:text-white transition-colors">
                   Sobre Nosotros
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-green-100 hover:text-white transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-green-100 hover:text-white transition-colors">
+                <Link href="/contacto" className="text-green-100 hover:text-white transition-colors">
                   Contacto
                 </Link>
               </li>
@@ -44,22 +39,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-
-          {/* Social Links */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Síguenos</h3>
-            <div className="flex space-x-4">
-              <a href="#" className="text-green-100 hover:text-white transition-colors">
-                <Instagram className="h-6 w-6" />
-              </a>
-              <a href="#" className="text-green-100 hover:text-white transition-colors">
-                <Twitter className="h-6 w-6" />
-              </a>
-              <a href="#" className="text-green-100 hover:text-white transition-colors">
-                <Github className="h-6 w-6" />
-              </a>
-            </div>
-          </div>
+          
         </div>
 
         <div className="border-t border-green-700 mt-8 pt-8 text-center text-green-100">

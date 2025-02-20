@@ -85,14 +85,16 @@ export default function Home() {
                 size="lg"
                 className="bg-green-600 hover:bg-green-700 text-white hover:scale-105 transition-transform"
               >
-                <Link href="/search" className="flex items-center"><Search className="mr-2 h-5 w-5" /> Buscar Creaciones</Link>
+                <Link href="/buscar" className="flex items-center"><Search className="mr-2 h-5 w-5" /> Buscar Creaciones</Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-green-600 text-green-600 hover:bg-green-50 hover:scale-105 transition-transform"
               >
-                <Sparkles className="mr-2 h-5 w-5" /> Sugerencias Personalizadas
+                <Link href="/creaciones-ia" className="flex items-center">
+                  <Sparkles className="mr-2 h-5 w-5" /> Sugerencias Personalizadas
+                </Link>
               </Button>
             </div>
           </motion.div>
